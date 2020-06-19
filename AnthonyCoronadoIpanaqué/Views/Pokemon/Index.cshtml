@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<h1>Lista de Pokemones</h1>
+
+<div class="col-sm-5">
+    <a class="btn btn-primary pull-right" href="/pokemon/crear"><span class="glyphicon glyphicon-plus"></span> Agregar Pokemon</a>
+</div>
+
+<form action="/" method="get">
+    <input type="text" id="name" name="name" placeholder="Escriba palabra a buscar" />
+
+
+
+    <button class="btn btn-primary" >Buscar</button>
+
+</form>
+
+
+<div id="contenedor">
+
+</div>
+
+
+
+
+
+<script>
+
+    function init() {
+        //console.log('/pokemon/_Index?name=' + $('#name').val());
+        $.ajax({
+            url: '/pokemon/_index?name=' + $('#name').val()
+        }).done(function (_Index) {
+            $('#contenedor').html(_Index);
+        });
+    }
+
+    $('form').on('submit', function (e) {
+        e.preventDefault();
+        init();
+    });
+
+    init();
+
+</script>
+
+
+
+
+
+
+
+
+

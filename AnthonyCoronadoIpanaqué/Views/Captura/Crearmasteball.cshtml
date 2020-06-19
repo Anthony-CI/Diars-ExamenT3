@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewData["Title"] = "Crearmasteball";
+}
+
+
+<form action="/Captura/Crearmasteball" method="post">
+
+
+
+    <div class="form-group">
+        <label>Pokemon</label>
+        <select class="form-control" name="IdPokemon">
+            <option value="value">Seleccione Pokemon</option>
+            @foreach (var item in ViewBag.Pokemones)
+            {
+                if (item.IdPokemon == Model.IdPokemon)
+                {
+                    <option selected value="@item.IdPokemon">@item.Nombre</option>
+                }
+                else
+                {
+                    <option value="@item.IdPokemon">@item.Nombre</option>
+                }
+
+            }
+        </select>
+        @Html.ValidationMessage("IdPokemon")
+        @Html.ValidationMessage("Maximo")
+        @Html.ValidationMessage("Maximo2")
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-primary">Capturar</button>
+    </div>
+
+</form>
+
+
+

@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Capturas</h2>
+
+<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+    <div class="btn-group mr-2" role="group" aria-label="First group">
+        <a class="btn btn-primary" href="/Captura/Crear" role="button">Atrapar con pokeball</a>
+    </div>
+
+    <div class="btn-group mr-2" role="group" aria-label="Second group">
+        <a class="btn btn-primary" href="/Captura/Crearsuperball" role="button">Atrapar con superball</a>
+    </div>
+
+    <div class="btn-group mr-2" role="group" aria-label="Third group">
+        <a class="btn btn-primary" href="/Captura/Crearultraball" role="button">Atrapar con UltraBall</a>
+    </div>
+
+    <div class="btn-group mr-2" role="group" aria-label="four group">
+        <a class="btn btn-primary" href="/Captura/Crearmasteball" role="button">Atrapar con Masterball</a>
+    </div>
+</div>
+
+
+
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-sm-5">
+
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+
+    <br />
+
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>IdPokemon</th>
+                        <th>Pokemon Nombre</th>
+                        <th>Pokemon Tipo</th>
+                        <th>Pokemon Imagen</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+
+                            <td>@item.Pokemon.IdPokemon</td>
+                            <td>@item.Pokemon.Nombre</td>
+                            <td>@item.Pokemon.Tipo</td>
+                            <td>
+                                <img height="100" src="~/Imagenes/@item.Pokemon.Imagen" />
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>
+
+
+
